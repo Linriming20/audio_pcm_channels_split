@@ -38,8 +38,14 @@ int pcm_s16le_split(const char* file, const char* out_lfile, const char* out_rfi
 	}
 
 	char * sample = (char *)malloc(4);
-	while(!feof(fp)) {
-		fread(sample, 1, 4, fp);
+	while(1) {
+		int readbytes = fread(sample, 1, 4, fp);
+		if(readbytes <= 0)
+		{
+			// 没有数据就不要写了
+			break;
+		}
+
 		// L
 		fwrite(sample, 1, 2, fp1);
 		// R
