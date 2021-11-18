@@ -8,6 +8,10 @@ int main(int argc, char *argv[])
 	if (argc != 4)
 	{	
 		printf("Usage: %s in.pcm out_l.pcm out_r.pcm\n", argv[0]);
+		printf("examples: \n"
+			   "\t %s ./audio/test_22050_16_2.pcm ./test_22050_16_1-l.pcm ./test_22050_16_1-r.pcm\n"
+			   "\t %s ./audio/test_44100_16_2.pcm ./test_44100_16_1-l.pcm ./test_44100_16_1-r.pcm\n",
+			   argv[0], argv[0]);
 		return -1;
 	}
 
